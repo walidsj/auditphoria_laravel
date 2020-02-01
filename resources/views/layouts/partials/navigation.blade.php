@@ -40,15 +40,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#kontak">Kontak</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Pendaftaran
-                            </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="peserta/daftar-paper">Call for Paper</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Audit</a>
-                                </div>
+                        <li id="menu_tentang" class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Pendaftaran</a>
                     </li>
                     <li class="nav-item">
                                 <a class="btn btn-outline-danger my-0" href="{{ route('login') }}">Masuk</a>
