@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'WelcomeController@index')->name('welcome');
 Auth::routes();
-//Auth::routes(['verify' => true]); kl mau verification
-
+//Auth::routes(['verify' => true]); kl mau verification 
 Route::get('/home', 'HomeController@index')->name('home'); //->middleware('verified');

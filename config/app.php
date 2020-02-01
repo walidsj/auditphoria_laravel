@@ -13,7 +13,12 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Auditphoria'),
+    'description' => env('APP_DESCRIPTION', 'Auditphorias Description'),
+    'keywords' => env('APP_KEYWORDS', 'Auditphorias Keywords'),
+    'jargon' => env('APP_JARGON', 'Auditphorias Jargon'),
+    'year' => env('APP_YEAR', '2020'),
+    'icon' => env('APP_ICON', '/favicon.ico'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +85,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +98,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
