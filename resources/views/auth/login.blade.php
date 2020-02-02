@@ -1,4 +1,5 @@
 @extends('layouts.masterapp')
+@section('title', 'Login Peserta')
 
 @section('content')
     <div id='content'>

@@ -1,4 +1,5 @@
 @extends('layouts.masterapp')
+@section('title', 'Dashboard Peserta')
 
 @section('content')
 <div class="container">

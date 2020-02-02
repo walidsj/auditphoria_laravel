@@ -11,7 +11,11 @@
     <link rel="shortcut icon" type="image/png" href="{{ config('app.icon') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    @if (Request::url() !== route('welcome'))
+    <title>@yield('title', config('app.jargon')) - {{ config('app.name') }}</title>
+    @else
+    <title>{{ config('app.name') }} - {{ config('app.jargon') }}</title>
+    @endif
     
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/tema.css">
