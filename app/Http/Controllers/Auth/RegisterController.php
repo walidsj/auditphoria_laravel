@@ -56,6 +56,8 @@ class RegisterController extends Controller
             'university' => ['required', 'string', 'min:3', 'max:255'],
             'whatsapp' => ['required', 'string', 'min:13', 'max:16'],
             'line' => ['required', 'string', 'min:3', 'max:20'],
+            'grade' => ['required', 'string', 'max:2'],
+            'agreement' => ['required']
         ]);
     }
 
@@ -74,6 +76,7 @@ class RegisterController extends Controller
             'university' => $data['university'],
             'whatsapp' => $data['whatsapp'],
             'line' => $data['line'],
+            'grade' => $data['grade'],
             'status' => 0,
         ]);
     }

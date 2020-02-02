@@ -22,7 +22,7 @@
                         <a class="nav-link" href="#tentang">Tentang</a>
                     </li>
                     @else
-                    <li class="nav-item">
+                <li class="nav-item {{ (Request::url() === route('home')) ? "active":""}}">
                     <a class="nav-link" href="{{ route('home') }}">Dashboard</span></a>
                     </li>
                     @endguest
@@ -41,14 +41,14 @@
                             <a class="nav-link" href="#kontak">Kontak</a>
                         </li>
                         <li id="menu_tentang" class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Pendaftaran</a>
+                        <a class="nav-link" href="{{ route('register') }}">Daftar</a>
                     </li>
                     <li class="nav-item">
                                 <a class="btn btn-outline-danger my-0" href="{{ route('login') }}">Masuk</a>
                     </li>
                     @else
                         <li class="nav-item">
-                        <a class="nav-link" href="#kontak">Panduan</a>
+                        <a class="nav-link" href="">Panduan</a>
                     </li>
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle mr-1"></i>
