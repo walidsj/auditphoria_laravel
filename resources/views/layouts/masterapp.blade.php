@@ -7,7 +7,7 @@
     <meta name="keywords" content="{{ config('app.keywords') }}">
     <meta name="og:title" property="og:title" content="{{ config('app.name') }}">
     <meta name="robots" content="index, follow">
-    <link href="" rel="canonical">
+    <link href="{{ route('home') }}" rel="canonical">
     <link rel="shortcut icon" type="image/png" href="{{ config('app.icon') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="assets/vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/vendor/select2/css/select2.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/vendor/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 
     <meta name="theme-color" content="#037475" />
     <meta name="msapplication-navbutton-color" content="#037475" />
@@ -59,6 +60,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="assets/vendor/slick/slick.min.js"></script>
     <script src="assets/vendor/select2/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="assets/js/main.js"></script>
 
     <script>

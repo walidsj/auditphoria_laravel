@@ -31,9 +31,9 @@
                             Info Lomba
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="event-lomba/call-for-paper">Call for Paper</a>
+                            <a class="dropdown-item" href="{{ route('lomba_cfp') }}">Call for Paper</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="event-lomba/audit">Lomba Audit</a>
+                            <a class="dropdown-item" href="{{ route('lomba_audit') }}">Lomba Audit</a>
                         </div>
                     </li>
                     @guest
