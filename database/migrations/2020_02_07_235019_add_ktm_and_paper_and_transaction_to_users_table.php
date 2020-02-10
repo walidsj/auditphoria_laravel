@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGradeToUsersTable extends Migration
+class AddKtmAndPaperAndTransactionToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,9 @@ class AddGradeToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('grade', 2)->nullable();
+            $table->string('ktm')->nullable();
+            $table->string('paper')->nullable();
+            $table->string('transaction')->nullable();
         });
     }
 
@@ -28,7 +30,9 @@ class AddGradeToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropColumn('grade');
+            $table->dropColumn('ktm');
+            $table->dropColumn('paper');
+            $table->dropColumn('transaction');
         });
     }
 }

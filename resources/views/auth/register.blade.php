@@ -7,7 +7,7 @@
             <div class='container'>
                 <div class='row'>
                     <div class='col-md-6'>
-                        <h2 class="judul-section my-3">Pendaftaran<br>Call for Paper</h2>
+                        <h2 class="judul-section my-3">Pendaftaran<br>Peserta Auditphoria</h2>
                         <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <hr>
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="university" class="col-md-4 col-form-label text-md-right">{{ __('Nama Universitas') }}</label>
+                            <label for="university" class="col-md-4 col-form-label text-md-right">{{ __('Asal Universitas') }}</label>
 
                             <div class="col-md-6">
                                 <input id="university" type="text" class="form-control @error('university') is-invalid @enderror" name="university" value="{{ old('university') }}" required autocomplete="university">
@@ -74,19 +74,18 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="grade" class="col-md-4 col-form-label text-md-right">{{ __('Jenjang') }}</label>
+                            <label for="grade_id" class="col-md-4 col-form-label text-md-right">{{ __('Jenjang') }}</label>
 
                             <div class="col-md-6">
-                                <select id="grade" name="grade" class="form-control @error('grade') is-invalid @enderror" required autocomplete="grade">
+                                <select id="grade_id" name="grade_id" class="form-control @error('grade_id') is-invalid @enderror" required autocomplete="grade_id">
                                     <option disabled selected>Pilih jenjang..</option>
-                                    <option value="S1" {{ (old("grade") == "S1" ? "selected":"") }}>Sarjana I (S1)</option>
-                                    <option value="D4" {{ (old("grade") == "D4" ? "selected":"") }}>Diploma IV (D4)</option>
-                                    <option value="D3" {{ (old("grade") == "D3" ? "selected":"") }}>Diploma III (D3)</option>
-                                    <option value="D1" {{ (old("grade") == "D1" ? "selected":"") }}>Diploma I (D1)</option>
-                                </select>
+                                    @foreach(App\Grade::orderBy('description', 'desc')->get() as $grade)
+                                <option value="{{ $grade->id }}" {{ (old("grade_id") == $grade->id ? "selected":"") }}>{{ $grade->description }} ({{ $grade->title }})</option>
+                                    @endforeach
+                                    </select>
                             </div>
 
-                             @error('grade')
+                             @error('grade_id')
                                     <small class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </small>
@@ -121,9 +120,28 @@
                             @enderror
                         </div>
                         <hr>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Pilih Kategori Lomba</label>
+                            @foreach(App\Category::orderBy('title', 'asc')->get() as $category)
+                            <label>
+                            <input type="radio" name="category_id" class="card-input-element d-none" id="category{{ $category->id }}" {{ (old('category_id') == $category->id ? 'checked="checked"':'') }} value="{{ $category->id }}">
+                                <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                                {{ $category->title }}
+                                </div>
+                            </label>
+                            @endforeach
+
+                            @error('category_id')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                             @enderror
+                        </div>
+                        <hr>
                         <div class="form-group form-check">
-                            <input name="agreement" type="checkbox" class="form-check-input" id="agreement" required>
-                            <label class="form-check-label" for="persetujuan">Saya menyetujui <a href="#" class="text-danger">syarat dan ketentuan</a> yang ditetapkan oleh panitia {{ config('app.name') }}.</label>
+                            <input name="agreement" type="checkbox" class="form-check-input" id="agreement">
+                            <label class="form-check-label" for="agreement">Saya menyetujui <a href="#" class="text-danger">syarat dan ketentuan</a> yang ditetapkan oleh panitia {{ config('app.name') }}.</label>
+
                              @error('agreement')
                                     <small class="text-danger">
                                         {{ $message }}

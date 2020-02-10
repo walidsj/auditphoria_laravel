@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategorysTable extends Migration
+class AddGradeIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateCategorysTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorys', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->integer('status')->default(1);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->string('grade_id', 2)->nullable();
         });
     }
 
@@ -29,6 +26,9 @@ class CreateCategorysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorys');
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->dropColumn('grade_id');
+        });
     }
 }

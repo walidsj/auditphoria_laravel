@@ -22,45 +22,62 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Beranda <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li id="menu_tentang" class="nav-item">
-                                <a class="nav-link" href="#tentang">Tentang</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Lomba
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="event-lomba/call-for-paper">Call for Paper</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="event-lomba/audit">Lomba Audit</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#kontak">Kontak</a>
-                            </li>
-                            @guest
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pendaftaran
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="peserta/daftar-paper">Call for Paper</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Audit</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
+                    @guest
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('welcome') }}">Beranda <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="menu_tentang" class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang</a>
+                    </li>
+                    @else
+                <li class="nav-item {{ (Request::url() === route('home')) ? "active":""}}">
+                    <a class="nav-link" href="{{ route('home') }}">Dashboard</span></a>
+                    </li>
+                    @endguest
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Info Lomba
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="event-lomba/call-for-paper">Call for Paper</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="event-lomba/audit">Lomba Audit</a>
+                        </div>
+                    </li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="#kontak">Kontak</a>
+                        </li>
+                        <li id="menu_tentang" class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Daftar</a>
+                    </li>
+                    <li class="nav-item">
                                 <a class="btn btn-outline-danger my-0" href="{{ route('login') }}">Masuk</a>
-                            </li>
-                            @else
-                            <li class="nav-item">
-                            <a class="btn btn-outline-danger my-0" href="{{ route('home') }}">Area Peserta</a>
-                            </li>
-                            @endguest
-                        </ul>
+                    </li>
+                    @else
+                        <li class="nav-item">
+                        <a class="nav-link" href="">Panduan</a>
+                    </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle mr-1"></i>
+                            {{ Auth::user()->name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{-- route('changepassword') --}}">Ubah Password</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="fas fa-power-off"></i> Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                        </div>
+                    </li>
+                    @endguest
+                </ul>
                     </div>
                 </nav>
 

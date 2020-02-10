@@ -54,9 +54,10 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:5', 'confirmed'],
             'university' => ['required', 'string', 'min:3', 'max:255'],
-            'whatsapp' => ['required', 'string', 'min:13', 'max:16'],
+            'whatsapp' => ['required', 'string', 'min:10', 'max:16'],
             'line' => ['required', 'string', 'min:3', 'max:20'],
-            'grade' => ['required', 'string', 'max:2'],
+            'grade_id' => ['required'],
+            'category_id' => ['required'],
             'agreement' => ['required']
         ]);
     }
@@ -76,7 +77,9 @@ class RegisterController extends Controller
             'university' => $data['university'],
             'whatsapp' => $data['whatsapp'],
             'line' => $data['line'],
-            'grade' => $data['grade'],
+            'grade_id' => $data['grade_id'],
+            'category_id' => $data['category_id'],
+            'level_id' => 2,
             'status' => 0,
         ]);
     }

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Grade;
+use App\User;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = User::whereId(Auth::user()->id)->first();
+        $grade = Grade::whereId($user->grade_id)->first();
+        $category = Category::whereId($user->category_id)->first();
+        return view('home', [
+            'user' => $user,
+            'grade' => $grade,
+            'category' => $category
+        ]);
     }
 }

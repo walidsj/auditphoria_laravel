@@ -15,3 +15,5 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 Auth::routes();
 //Auth::routes(['verify' => true]); kl mau verification 
 Route::get('/home', 'HomeController@index')->name('home'); //->middleware('verified');
+
+Route::post('/update-datadiri', 'PaperController@update_datadiri')->name('update_datadiri');
