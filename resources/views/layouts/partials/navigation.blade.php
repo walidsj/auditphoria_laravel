@@ -48,7 +48,11 @@
                     </li>
                     @else
                         <li class="nav-item">
-                        <a class="nav-link" href="">Panduan</a>
+                        @if(Auth::user()->category_id == 2)
+                        <a class="nav-link" href="https://drive.google.com/folderview?id=1-8JBeK82H6UNqzkDyqwn-KfAyZwlFW0M">Panduan</a>
+                        @elseif($user->category_id == 1)
+                        <a class="nav-link" href="assets/doc/booklet/Booklet%20Paper%20Auditphoria%202.0.docx">Panduan</a>
+                        @endif
                     </li>
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle mr-1"></i>

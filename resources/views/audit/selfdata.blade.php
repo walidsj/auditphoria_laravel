@@ -1,11 +1,11 @@
-             <h5 class="card-title text-bold">Data Diri Peserta</h5>
+             <h5 class="card-title text-bold">Data Peserta dan Tim</h5>
                 <p class="card-text">Silakan periksa dan lengkapi data Anda.</p>
-                @if(!empty($user->ktm))
+                @if(!empty($user->team_name) && !empty($user->team1) && !empty($user->team2))
                 <div class="alert alert-info alert-block">
-                    <strong><i class="fas fa-info-circle mr-2"></i> Data Diri Peserta berhasil disimpan! </strong>
+                    <strong><i class="fas fa-info-circle mr-2"></i> Data Peserta dan Tim telah dilengkapi dan berhasil disimpan! </strong>
                 </div>
                 @endif
-                <form method="post" action="{{ route('update_datadiri') }}" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{ route('update_dataaudit') }}" method="post" enctype="multipart/form-data">
                      @csrf
                         <hr>
                         <div class="form-group">
@@ -19,7 +19,21 @@
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label class="label-form" for="name">Nama Peserta</label>
+                            <label class="label-form" for="team_name">Nama Tim</label>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input id="team_name" type="text" class="form-control @error('team_name') is-invalid @enderror" name="team_name" value="{{ $user->team_name }}" required autocomplete="team_name" placeholder="Nama Tim">
+                            </div>
+                            @error('team_name')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                             @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="label-form" for="name">Nama Ketua Tim</label>
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
@@ -32,6 +46,35 @@
                                     </small>
                              @enderror
                         </div>
+                        <div class="form-group">
+                            <label class="label-form" for="team1">Nama Anggota Tim 1</label>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input id="team1" type="text" class="form-control @error('team1') is-invalid @enderror" name="team1" value="{{ $user->team1 }}" required autocomplete="team1" placeholder="Nama Anggota Tim 1">
+                            </div>
+                            @error('team1')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                             @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="label-form" for="team2">Nama Anggota Tim 2</label>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input id="team2" type="text" class="form-control @error('team2') is-invalid @enderror" name="team2" value="{{ $user->team2 }}" required autocomplete="team2" placeholder="Nama Anggota Tim 2">
+                            </div>
+                            @error('team2')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                             @enderror
+                        </div>
+                        <hr>
                         <div class="form-group">
                             <label class="label-form" for="university">Asal Universitas</label>
                             <div class="input-group flex-nowrap">
@@ -95,18 +138,6 @@
                                         <strong>{{ $message }}</strong>
                                     </small>
                             @enderror
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <label for="ktm" class="form-label" ><b>Unggah KTM</b> <small class="text-danger">(max. 2 MB, pdf/png/jpg/jpeg)</small></label>
-                            <input type="file" class="form-control mb-3 @error('ktm') is-invalid @enderror" name="ktm" id="ktm" required>
-
-                                        @error('ktm')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                            {!! (!empty($user->ktm)) ? "<b>KTM Terupload:</b> ".$user->ktm : "" !!}
                         </div>
                         <hr>
                         <div class="form-group form-check">

@@ -22,9 +22,13 @@ Route::post('/upload-paper', 'PaperController@upload_paper')->name('upload_paper
 Route::post('/upload-transaction', 'PaperController@upload_transaction')->name('upload_transaction');
 
 //iAUDIT
+Route::post('/update-dataaudit', 'AuditController@update_data')->name('update_dataaudit');
+Route::post('/upload-ktm', 'AuditController@upload_ktm')->name('upload_ktm');
+Route::post('/upload-transaction-audit', 'AuditController@upload_transaction')->name('upload_transaction_audit');
 
 //Umum
 Route::post('/finalizing-paper', 'PaperController@finalizing_paper')->name('finalizing_paper');
+Route::post('/finalizing-audit', 'AuditController@finalizing_audit')->name('finalizing_audit');
 
 //LOMBA
 Route::get('/lomba-call-for-paper', 'LombaController@cfp')->name('lomba_cfp');

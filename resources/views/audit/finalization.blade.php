@@ -20,12 +20,12 @@
                             <label class="label-form" for="name">Tahap Pendaftaran</label>
                             <ol>
                                 <li>Lengkapi Data Diri
-                                    @if(!empty($user->ktm))
+                                    @if(!empty($user->team_name) && !empty($user->team1) && !empty($user->team2))
                                         <span class="badge badge-pill badge-warning"><i class="fas fa-award"></i> Selesai</span>
                                     @endif
                                 </li>
-                                <li>Unggah Karya Paper
-                                    @if(!empty($user->paper))
+                                <li>Unggah Kartu Mahasiswa
+                                    @if(!empty($user->ktm))
                                         <span class="badge badge-pill badge-warning"><i class="fas fa-award"></i> Selesai</span>
                                     @endif
                                 </li>
@@ -37,8 +37,8 @@
                             </ol>
                         </div>
                         <hr>
-                        @if(!empty($user->ktm && $user->paper && $user->transaction))
-                        <form method="post" action="{{ route('finalizing_paper') }}" method="post" enctype="multipart/form-data">
+                        @if(!empty($user->team_name && $user->team1 && $user->team2 && $user->ktm && $user->transaction))
+                        <form method="post" action="{{ route('finalizing_audit') }}" method="post" enctype="multipart/form-data">
                          @csrf
                          <div class="form-group form-check">
                             <input name="agreement" type="checkbox" class="form-check-input" id="agreement-finalization">

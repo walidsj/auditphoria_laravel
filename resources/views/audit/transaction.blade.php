@@ -5,7 +5,7 @@
                     <strong><i class="fas fa-info-circle mr-2"></i> Bukti Pembayaran berhasil diunggah dan disimpan! </strong>
                 </div>
                 @endif
-                <form method="post" action="{{ route('upload_transaction') }}" method="post" enctype="multipart/form-data">
+                <form method="post" action="{{ route('upload_transaction_audit') }}" method="post" enctype="multipart/form-data">
                      @csrf
                         <hr>
                         <div class="form-group">
@@ -14,12 +14,12 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Nama Lengkap" disabled value="{{ $user->name }}  ({{ $user->email }})">
+                                <input class="form-control" placeholder="Nama Lengkap" disabled value="{{ $user->name }} / {{ $user->team_name }} ({{ $user->email }})">
                             </div>
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label for="transaction" class="form-label" ><b>Unggah Bukti Pembayaran</b> <small class="text-danger">(max. 2 MB, pdf/doc/docx)</small></label>
+                            <label for="transaction" class="form-label" ><b>Unggah Bukti Pembayaran</b> <small class="text-danger">(max. 2 MB, jpg/jpeg/png/pdf)</small></label>
                             <input type="file" class="form-control mb-3 @error('transaction') is-invalid @enderror" name="transaction" id="transaction" required>
 
                                         @error('transaction')
@@ -27,7 +27,7 @@
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
-                            {!! (!empty($user->transaction)) ? "<b>Karya Paper Terupload:</b> ".$user->transaction : "" !!}
+                            {!! (!empty($user->transaction)) ? "<b>Bukti Pembayaran Terupload:</b> ".$user->transaction : "" !!}
                         </div>
                         <hr>
                         <div class="form-group form-check">

@@ -95,13 +95,13 @@
                                 @else
                                     <li class="nav-item">
                                         <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"><span class="badge badge-pill badge-success mr-1">1</span>Lengkapi Data 
-                                            @if(!empty($user->team_name) && !empty($user->team1) && !empty($user->team2) && !empty($user->team3))
+                                            @if(!empty($user->team_name) && !empty($user->team1) && !empty($user->team2))
                                             <i class="fas fa-check-circle text-warning"></i>
                                             @endif
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"><span class="badge badge-pill badge-success mr-1">2</span>Unggah Paper
+                                        <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"><span class="badge badge-pill badge-success mr-1">2</span>Unggah KTM
                                         @if(!empty($user->ktm))
                                             <i class="fas fa-check-circle text-warning"></i>
                                             @endif

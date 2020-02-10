@@ -16,7 +16,7 @@
                         <p>Audit Competition merupakan sebuah kompetisi berkelompok yang dimaksudkan untuk dapat meningkatkan pengetahuan dan keterampilan mahasiswa PKN STAN dalam bidang auditing sebagai bekal dalam dunia kerja di pemerintahan.</p>
                         <p>Lomba Audit terdiri atas babak <strong>Preliminary Round</strong> yang diadakan secara online dan babak <strong>Audit Competition and Challenge</strong> yaitu Lomba Cerdas Cermat, Debat, dan Kasus.</p>
                     <a href="{{ route('register') }}" class="btn btn-luana btn-danger btn-sm my-2 mr-3" role="button" style="background-image: url('assets/img/particle/button.png');">Link Pendaftaran</a>
-                        <a class="btn btn-sm btn-outline-secondary my-2" href="#">Lihat Ketentuan</a>
+                        <a class="btn btn-sm btn-outline-secondary my-2" href="https://drive.google.com/folderview?id=1-8JBeK82H6UNqzkDyqwn-KfAyZwlFW0M">Lihat Ketentuan</a>
                     </div>
                 </div>
             </div>
